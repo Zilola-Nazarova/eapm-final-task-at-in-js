@@ -1,0 +1,12 @@
+{
+  "name": "epam-final-task-at-in",
+  "version": "1.0.0",
+  "description": "Launch URL: https://www.saucedemo.com/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
