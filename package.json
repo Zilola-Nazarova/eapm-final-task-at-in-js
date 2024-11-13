@@ -4,6 +4,7 @@
   "description": "Launch URL: https://www.saucedemo.com/",
   "main": "index.js",
   "scripts": {
+    "coverage": "c8 npm run wdio",
     "lint": "eslint ./ --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "wdio": "wdio run ./wdio.conf.js"
@@ -20,5 +21,8 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.31.0",
     "wdio-wait-for": "^3.0.11"
+  },
+  "dependencies": {
+    "c8": "^10.1.2"
   }
 }
