@@ -3,7 +3,7 @@ const { Key } = require('webdriverio');
 
 const { page } = require('../po');
 
-function testComponent(componentName, { invalidInput, errorMessage, successTitle }) {
+const testComponent = (componentName, { invalidInput, errorMessage, successTitle }) => {
   beforeEach(async () => {
     await page('login').open();
   });
@@ -35,7 +35,7 @@ function testComponent(componentName, { invalidInput, errorMessage, successTitle
       await expect(await page('inventory').header.title).toHaveText(successTitle);
     }
   });
-}
+};
 
 describe('Login form', () => {
   testComponent(
