@@ -21,7 +21,7 @@ class FormComponent extends BaseComponent {
 
   input(field) {
     const selectors = {
-      name: '#user-name',
+      username: '#user-name',
       password: '#password',
     };
     return this.rootEl.$(selectors[field.toLowerCase()]);

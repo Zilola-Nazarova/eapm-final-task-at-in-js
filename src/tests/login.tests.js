@@ -9,10 +9,10 @@ describe('Login form', () => {
   });
 
   it('with empty credentials', async () => {
-    await page('login').form.input('name').setValue('John Doe');
+    await page('login').form.input('username').setValue('John Doe');
     await page('login').form.input('password').setValue('Password');
 
-    await page('login').form.input('name').click();
+    await page('login').form.input('username').click();
     await browser.keys([Key.Ctrl, 'a']);
     await browser.keys([Key.Backspace]);
     await page('login').form.loginBtn.click();
@@ -22,7 +22,7 @@ describe('Login form', () => {
   });
 
   it('with credentials by passing Username', async () => {
-    await page('login').form.input('name').setValue('John Doe');
+    await page('login').form.input('username').setValue('John Doe');
     await page('login').form.input('password').setValue('Password');
 
     await page('login').form.input('password').click();
@@ -38,7 +38,7 @@ describe('Login form', () => {
     const name = await page('login').credentials.validName();
     const password = await page('login').credentials.validPassword();
 
-    await page('login').form.input('name').setValue(name);
+    await page('login').form.input('username').setValue(name);
     await page('login').form.input('password').setValue(password);
     await page('login').form.loginBtn.click();
 
