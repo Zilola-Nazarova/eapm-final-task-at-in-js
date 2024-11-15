@@ -1,3 +1,5 @@
+const { $ } = require('@wdio/globals');
+
 class BaseComponent {
   constructor(rootSelector) {
     this.rootSelector = rootSelector;

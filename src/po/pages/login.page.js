@@ -1,4 +1,5 @@
-import { Form, Credentials } from '../components';
+const { browser } = require('@wdio/globals');
+const { Form, Credentials } = require('../components');
 
 class LoginPage {
   constructor() {

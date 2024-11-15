@@ -1,3 +1,4 @@
+const { browser } = require('@wdio/globals');
 const { Header, SideBar, Footer } = require('../components');
 
 class BasePage {

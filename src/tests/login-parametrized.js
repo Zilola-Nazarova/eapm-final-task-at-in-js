@@ -1,5 +1,5 @@
-import { browser } from '@wdio/globals';
-import { Key } from 'webdriverio';
+const { browser } = require('@wdio/globals');
+const { Key } = require('webdriverio');
 
 const { page } = require('../po');
 
