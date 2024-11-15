@@ -6,8 +6,9 @@
   "scripts": {
     "coverage": "c8 npm run wdio",
     "lint": "eslint ./ --fix",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "wdio": "wdio run ./wdio.conf.js"
+    "pretest": "npm run lint",
+    "test": "wdio run ./src/config/wdio.conf.js",
+    "wdio":  "wdio run ./src/config/wdio.conf.js"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "wdio-wait-for": "^3.0.11"
   },
   "dependencies": {
+    "@wdio/globals": "^9.2.12",
     "c8": "^10.1.2"
   }
 }
