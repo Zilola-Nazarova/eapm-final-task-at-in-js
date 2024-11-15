@@ -8,7 +8,7 @@
     "lint": "eslint ./ --fix",
     "pretest": "npm run lint",
     "test": "wdio run ./src/config/wdio.conf.js",
-    "wdio":  "wdio run ./src/config/wdio.conf.js"
+    "wdio": "wdio run ./src/config/wdio.conf.js"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@wdio/globals": "^9.2.12",
-    "c8": "^10.1.2"
+    "c8": "^10.1.2",
+    "webdriverio": "^9.2.14"
   }
 }
