@@ -4,7 +4,7 @@ const { InventoryHeader } = require('../components');
 class InventoryPage extends BasePage {
   constructor() {
     super('/inventory.html');
-    this.inventoryHeader = new InventoryHeader;
+    this.inventoryHeader = new InventoryHeader();
   }
 }
 

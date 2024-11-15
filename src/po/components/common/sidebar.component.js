@@ -7,10 +7,10 @@ class SideBarComponent extends BaseComponent {
 
   item(param) {
     const selectors = {
-      items: "#inventory_sidebar_link",
-      about: "#about_sidebar_link",
-      logout: "#logout_sidebar_link",
-      reset: "#reset_sidebar_link",
+      items: '#inventory_sidebar_link',
+      about: '#about_sidebar_link',
+      logout: '#logout_sidebar_link',
+      reset: '#reset_sidebar_link',
     };
 
     return this.rootEl.$(selectors[param.toLowerCase()]);

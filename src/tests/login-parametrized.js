@@ -25,7 +25,7 @@ function testComponent(componentName, { invalidInput, errorMessage, successTitle
     }
 
     // LOGIN
-    await page('login').form.loginBtn.click();  
+    await page('login').form.loginBtn.click();
 
     // ASSERT
     if (invalidInput) {
@@ -38,23 +38,26 @@ function testComponent(componentName, { invalidInput, errorMessage, successTitle
 }
 
 describe('Login form', () => {
-  testComponent('with empty credentials',
+  testComponent(
+    'with empty credentials',
     {
       invalidInput: 'username',
-      errorMessage: 'Username is required'
-    }
+      errorMessage: 'Username is required',
+    },
   );
-  testComponent('with credentials by passing Username',
+  testComponent(
+    'with credentials by passing Username',
     {
       invalidInput: 'password',
-      errorMessage: 'Password is required'
-    }
+      errorMessage: 'Password is required',
+    },
   );
-  testComponent('with credentials by passing Username & Password',
+  testComponent(
+    'with credentials by passing Username & Password',
     {
       invalidInput: null,
       errorMessage: null,
-      successTitle: 'Swag Labs'
-    }
+      successTitle: 'Swag Labs',
+    },
   );
 });

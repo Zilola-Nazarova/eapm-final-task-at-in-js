@@ -9,7 +9,7 @@ class CredentialsComponent extends BaseComponent {
     const name = await this.rootEl.$('.login_credentials').getText();
     return name.split('\n')[1];
   }
-  
+
   async validPassword() {
     const password = await this.rootEl.$('.login_password').getText();
     return password.split('\n')[1];

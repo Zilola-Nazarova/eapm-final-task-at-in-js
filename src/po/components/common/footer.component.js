@@ -7,9 +7,9 @@ class Footer extends BaseComponent {
 
   social(param) {
     const selectors = {
-      twitter: ".social_twitter",
-      facebook: ".social_facebook",
-      linkedin: ".social_linkedin",
+      twitter: '.social_twitter',
+      facebook: '.social_facebook',
+      linkedin: '.social_linkedin',
     };
 
     return this.rootEl.$(selectors[param.toLowerCase()]);
@@ -17,4 +17,3 @@ class Footer extends BaseComponent {
 }
 
 module.exports = Footer;
-
