@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@wdio/globals": "^9.2.12",
+    "allure-commandline": "^2.32.0",
     "c8": "^10.1.2",
     "webdriverio": "^9.2.14"
   }

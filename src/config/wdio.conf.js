@@ -1,5 +1,9 @@
 /* eslint max-len: 0 */
 /* eslint no-unused-vars: 0 */
+/* eslint no-console: 0 */
+
+const allure = require('allure-commandline');
+const { existsSync, mkdirSync } = require('node:fs');
 
 exports.config = {
   //
@@ -128,7 +132,13 @@ exports.config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: [['allure', { outputDir: 'artefacts/allure-results' }]],
+  reporters: [
+    ['allure', {
+      outputDir: 'allure-results',
+      disableWebdriverStepsReporting: true,
+      disableWebdriverScreenshotsReporting: true,
+    }],
+  ],
 
   // Options to be passed to Mocha.
   // See the full list at http://mochajs.org/
@@ -231,12 +241,24 @@ exports.config = {
      * @param {boolean} result.passed    true if test has passed, otherwise false
      * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-  async afterTest(test, context, { error, result, duration, passed, retries }) {
-    if (!passed) {
-      await browser.takeScreenshot();
+  //   async afterTest(test, context, { error, result, duration, passed, retries }) {
+  //     if (!passed) {
+  //       await browser.takeScreenshot();
+  //     }
+  //   },
+  afterTest: async (test, context, { error, result, duration, passed, retries }) => {
+    if (error) {
+      console.log(`Screenshot for the failed test ${test.title} is saved`);
+      const filename = `${test.title}.png`;
+      const dirPath = './artefacts/screenshots/';
+      if (!existsSync(dirPath)) {
+        mkdirSync(dirPath, {
+          recursive: true,
+        });
+      }
+      await browser.saveScreenshot(dirPath + filename);
     }
   },
-
   /**
      * Hook that gets executed after the suite has ended
      * @param {object} suite suite details
@@ -277,8 +299,23 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-  // onComplete: function(exitCode, config, capabilities, results) {
-  // },
+  onComplete(exitCode, config, capabilities, results) {
+    const reportError = new Error('Could not generate Allure report');
+    const generation = allure(['generate', 'allure-results', '--clean']);
+
+    return new Promise((resolve, reject) => {
+      const generationTimeout = setTimeout(() => reject(reportError), 5000);
+      generation.on('exit', function (code) {
+        clearTimeout(generationTimeout);
+
+        if (code !== 0) {
+          return reject(reportError);
+        }
+        console.log('Allure report successfully generated');
+        return resolve();
+      });
+    });
+  },
   /**
     * Gets executed when a refresh happens.
     * @param {string} oldSessionId session ID of the old session

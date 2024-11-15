@@ -1,2 +1,4 @@
 node_modules
 artefacts
+allure-results
+allure-report
