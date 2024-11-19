@@ -30,9 +30,9 @@ const testComponent = (componentName, { invalidInput, errorMessage, successTitle
     // ASSERT
     if (invalidInput) {
       const message = await page('login').form.errorMessage;
-      await expect(message).toHaveText(expect.stringContaining(errorMessage));
+      await expect(message).toEqual(expect.stringContaining(errorMessage));
     } else {
-      await expect(await page('inventory').header.logoText).toHaveText(successTitle);
+      await expect(await page('inventory').header.logoText).toEqual(successTitle);
     }
   });
 };
