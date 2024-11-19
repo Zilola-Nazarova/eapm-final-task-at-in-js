@@ -10,7 +10,7 @@ class FormComponent extends BaseComponent {
   }
 
   get errorMessage() {
-    return this.rootEl.$('.error h3');
+    return this.rootEl.$('.error h3').getText();
   }
 
   /**

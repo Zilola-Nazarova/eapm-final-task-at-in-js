@@ -10,7 +10,7 @@ class HeaderComponent extends BaseComponent {
   }
 
   get title() {
-    return this.rootEl.$('.app_logo');
+    return this.rootEl.$('.app_logo').getText();
   }
 
   get cartBtn() {
