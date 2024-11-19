@@ -1,5 +1,5 @@
 const compareText = (firstText, secondText, compareOption) => {
-  switch(compareOption) {
+  switch (compareOption) {
     case 'contain':
       return expect(firstText).toContain(secondText);
     case 'not contain':
