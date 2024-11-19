@@ -7,8 +7,8 @@
     "coverage": "c8 npm run wdio",
     "lint": "eslint ./ --fix",
     "pretest": "npm run lint",
-    "test": "wdio run ./src/config/wdio.conf.js",
-    "wdio": "wdio run ./src/config/wdio.conf.js"
+    "mocha": "wdio run ./src/config/wdio.mocha.conf.js",
+    "cucumber": "wdio run ./src/config/wdio.cucumber.conf.js"
   },
   "keywords": [],
   "author": "",
