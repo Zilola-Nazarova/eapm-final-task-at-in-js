@@ -38,6 +38,8 @@ To perform the task use the various of additional options:
 
 - Install dependencies:  
   `npm i`
+- Check linters:
+  `npm run lint`
 - Run tests in Mocha with eslint pretest hook:  
   `npm run mocha`
 - Run test in Cucumber with eslint pretest hook:  
