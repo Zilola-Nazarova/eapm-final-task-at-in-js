@@ -18,7 +18,7 @@ describe('Login form', () => {
     await page('login').form.loginBtn.click();
 
     const message = await page('login').form.errorMessage;
-    await expect(message).toHaveText(expect.stringContaining('Username is required'));
+    await expect(message).toEqual(expect.stringContaining('Username is required'));
   });
 
   it('with credentials by passing Username', async () => {
@@ -31,7 +31,7 @@ describe('Login form', () => {
     await page('login').form.loginBtn.click();
 
     const message = await page('login').form.errorMessage;
-    await expect(message).toHaveText(expect.stringContaining('Password is required'));
+    await expect(message).toEqual(expect.stringContaining('Password is required'));
   });
 
   it('with credentials by passing Username & Password', async () => {
@@ -42,6 +42,6 @@ describe('Login form', () => {
     await page('login').form.input('password').setValue(password);
     await page('login').form.loginBtn.click();
 
-    await expect(await page('inventory').header.title).toHaveText('Swag Labs');
+    await expect(await page('inventory').header.title).toEqual('Swag Labs');
   });
 });
