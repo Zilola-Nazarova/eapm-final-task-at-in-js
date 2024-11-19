@@ -143,7 +143,10 @@ exports.config = {
   // If you are using Cucumber you need to specify the location of your step definitions.
   cucumberOpts: {
     // <string[]> (file/dir) require files before executing features
-    require: ['./src/step-definitions/*-steps.js'],
+    require: [
+      './src/step-definitions/*-steps.js',
+      './src/step-definitions/hooks/*.js',
+    ],
     // <boolean> show full backtrace for errors
     backtrace: false,
     // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -263,19 +266,8 @@ exports.config = {
      * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
 
-  afterTest: async (test, context, { error, result, duration, passed, retries }) => {
-    if (error) {
-      console.log(`Screenshot for the failed test ${test.title} is saved`);
-      const filename = `${test.title}.png`;
-      const dirPath = './artefacts/screenshots/';
-      if (!existsSync(dirPath)) {
-        mkdirSync(dirPath, {
-          recursive: true,
-        });
-      }
-      await browser.saveScreenshot(dirPath + filename);
-    }
-  },
+  // afterTest: async (test, context, { error, result, duration, passed, retries }) => {
+  // },
   /**
      * Hook that gets executed after the suite has ended
      * @param {object} suite suite details
