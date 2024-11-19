@@ -9,7 +9,7 @@ class HeaderComponent extends BaseComponent {
     return this.rootEl.$('#react-burger-menu-btn');
   }
 
-  get title() {
+  get logoText() {
     return this.rootEl.$('.app_logo').getText();
   }
 

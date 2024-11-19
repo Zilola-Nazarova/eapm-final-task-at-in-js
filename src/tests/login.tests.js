@@ -42,6 +42,6 @@ describe('Login form', () => {
     await page('login').form.input('password').setValue(password);
     await page('login').form.loginBtn.click();
 
-    await expect(await page('inventory').header.title).toEqual('Swag Labs');
+    await expect(await page('inventory').header.logoText).toEqual('Swag Labs');
   });
 });

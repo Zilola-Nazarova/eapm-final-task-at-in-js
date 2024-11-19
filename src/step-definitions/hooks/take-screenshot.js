@@ -4,7 +4,7 @@ const { After } = require('@wdio/cucumber-framework');
 const { driver } = require('@wdio/globals');
 const { existsSync, mkdirSync } = require('node:fs');
 
-After({ name: 'Take screenshot' }, async function (testCase) {
+After({ name: 'Take screenshot' }, async (testCase) => {
   if (testCase.result.status === 'FAILED') {
     console.log(`Screenshot for the failed test ${testCase.pickle.name} is saved`);
     const filename = `${testCase.pickle.name}.png`;

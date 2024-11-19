@@ -18,4 +18,4 @@ Feature: Login
   Scenario: As a user, I can login with valid username and password
 
     When I click login button in login form
-    Then I should see an Inventory page title that should "be equal to" "Swag Labs"
+    Then I should see an Inventory page with logo text that should "be equal to" "Swag Labs"

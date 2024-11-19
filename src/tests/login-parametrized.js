@@ -32,7 +32,7 @@ const testComponent = (componentName, { invalidInput, errorMessage, successTitle
       const message = await page('login').form.errorMessage;
       await expect(message).toHaveText(expect.stringContaining(errorMessage));
     } else {
-      await expect(await page('inventory').header.title).toHaveText(successTitle);
+      await expect(await page('inventory').header.logoText).toHaveText(successTitle);
     }
   });
 };
