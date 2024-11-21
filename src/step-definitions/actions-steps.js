@@ -4,9 +4,14 @@ const { page } = require('../po');
 
 Given(/^I am on the "(\w+)" page$/, (pageName) => page(pageName).open());
 
-When(/^I enter "(valid|any)" username and "(valid|any)" password$/, async (usernameType, passwordType) => {
-  await page('login').form.input('username').setValue(usernameType === 'any' ? 'John Doe' : 'standard_user');
+When(/^I enter "(any|locked out)" username and "(any|valid)" password$/, async (usernameType, passwordType) => {
+  await page('login').form.input('username').setValue(usernameType === 'any' ? 'John Doe' : 'locked_out_user');
   await page('login').form.input('password').setValue(passwordType === 'any' ? 'Password' : 'secret_sauce');
+});
+
+When(/^I login with valid credentials - (\w+) and (.+)$/, async (username, password) => {
+  await page('login').form.input('username').setValue(username);
+  await page('login').form.input('password').setValue(password);
 });
 
 When(/^I clear "(\w+)" in login form$/, async (field) => {
