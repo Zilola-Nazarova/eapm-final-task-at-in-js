@@ -38,6 +38,7 @@ describe('Login form', () => {
   it('with credentials of the locked out user', async () => {
     await page('login').form.input('username').setValue('locked_out_user');
     await page('login').form.input('password').setValue('secret_sauce');
+    await page('login').form.loginBtn.click();
 
     const message = await page('login').form.errorMessage;
     await expect(message).toEqual(expect.stringContaining('Sorry, this user has been locked out'));
