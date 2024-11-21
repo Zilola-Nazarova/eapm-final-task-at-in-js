@@ -4,7 +4,8 @@
   "description": "Launch URL: https://www.saucedemo.com/",
   "main": "index.js",
   "scripts": {
-    "coverage": "c8 npm run wdio",
+    "coverage_mocha": "c8 npm run mocha",
+    "coverage_cucumber": "c8 npm run cucumber",
     "lint": "eslint ./ --fix",
     "pretest": "npm run lint",
     "mocha": "wdio run ./src/config/wdio.mocha.conf.js",

@@ -45,7 +45,9 @@ To perform the task use the various of additional options:
 - Run test in Cucumber with eslint pretest hook:  
   `npm run cucumber`
 - Generate coverage report:  
-  `npm run coverage`
+  `npm run coverage_mocha`  
+  `npm run coverage_cucumber`
+
 
 Coverage report is autosaved in `artefacts/coverage` folder.  
 All failed tests' screenshots are autosaved in `artefacts/screenshots` folder.  
