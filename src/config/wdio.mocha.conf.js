@@ -3,7 +3,7 @@
 /* eslint no-console: 0 */
 
 const allure = require('allure-commandline');
-const { existsSync, mkdirSync } = require('node:fs');
+const { existsSync, mkdirSync, rmSync } = require('node:fs');
 
 exports.config = {
   //
@@ -295,6 +295,12 @@ exports.config = {
      * @param {<Object>} results object containing test results
      */
   onComplete(exitCode, config, capabilities, results) {
+    const directory = "./allure-report";
+
+    if (existsSync(directory)) {
+      rmSync(directory, { recursive: true, force: true });
+    };
+    
     const reportError = new Error('Could not generate Allure report');
     const generation = allure(['generate', 'allure-results', '--clean']);
 
