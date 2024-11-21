@@ -18,7 +18,7 @@ Feature: Login
   Scenario: As a user, I can not login if I am locked out
     When I enter "locked out" username and "valid" password
     And I click login button in login form
-    Then I should see an error message that should "contain" "Sorry, this user has been locked out."
+    Then I should see an error message that should "contain" "Sorry, this user has been locked out"
 
   Scenario Outline: As a user, I can login with valid username and password
     When I login with valid credentials - <username> and <password>
