@@ -1,0 +1,5 @@
+node_modules
+artefacts
+allure-report
+allure-results
+logs
